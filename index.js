@@ -48,7 +48,7 @@ const welcomeMessages = [
     "{user} has joined the party! Let the fun begin!",
     "Welcome {user}! Make yourself at home."
 ];
-
+// Start Message
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     console.log("ORIONIX BOT FREE VERSION IS ONLINE");
@@ -178,7 +178,7 @@ client.on('interactionCreate', async interaction => {
                     const updateChannel = interaction.options.getChannel('channel');
                     config.updateChannel = updateChannel.id;
                     saveConfig();
-//NOT UPDATES HERE
+//IN DEVELOPMENT
                     const updateEmbed = new EmbedBuilder()
                         .setColor('#00FF00')
                         .setTitle('Receive Bot Updates')
