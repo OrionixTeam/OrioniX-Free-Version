@@ -11,9 +11,9 @@ const client = new Client({
     partials: [Partials.Channel, Partials.Message, Partials.User, Partials.GuildMember, Partials.Reaction]
 });
 
-const TOKEN = 'MTI4NTcwMDQ2MTg5ODM3MTE2NA.GUJPXw.G3aLRz3haAoCln0ojJHe899AAHoIHTCKoeO5AQ';
-const CLIENT_ID = '1285700461898371164';
-const GUILD_ID = '1228092459460989040';
+const TOKEN = '';
+const CLIENT_ID = '';
+const GUILD_ID = '';
 
 const rest = new REST({ version: '9' }).setToken(TOKEN);
 
@@ -23,7 +23,7 @@ let config = {
     welcomeChannel: null,
     updateChannel: null,
     updateMessageId: null,
-    updateRole: '1287802485406433344'
+    updateRole: ''
 };
 
 const ticketCategories = [
@@ -38,6 +38,8 @@ const priorityLevels = [
     { label: 'Medium', value: 'medium', emoji: '🟡' },
     { label: 'High', value: 'high', emoji: '🔴' }
 ];
+
+//Here you can config the welcome message
 
 const welcomeMessages = [
     "Welcome {user} to our server! We hope you enjoy your stay.",
@@ -62,7 +64,7 @@ function loadConfig() {
                 welcomeChannel: null,
                 updateChannel: null,
                 updateMessageId: null,
-                updateRole: '1287802485406433344'
+                updateRole: ''
             };
             fs.writeFileSync('config.json', JSON.stringify(defaultConfig, null, 2));
             console.log('Created new config.json file with default settings');
@@ -77,7 +79,7 @@ function loadConfig() {
             welcomeChannel: null,
             updateChannel: null,
             updateMessageId: null,
-            updateRole: '1287802485406433344'
+            updateRole: ''
         };
     }
 }
@@ -176,7 +178,7 @@ client.on('interactionCreate', async interaction => {
                     const updateChannel = interaction.options.getChannel('channel');
                     config.updateChannel = updateChannel.id;
                     saveConfig();
-
+//NOT UPDATES HERE
                     const updateEmbed = new EmbedBuilder()
                         .setColor('#00FF00')
                         .setTitle('Receive Bot Updates')
